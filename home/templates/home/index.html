@@ -1,0 +1,524 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+
+    <!-- banner part start-->
+    <section class="banner_part" id="home">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-6 col-md-6">
+                    <div class="banner_text">
+                        <div class="banner_text_iner text-center">
+                            <h2>Predict <span>The Future</span> </h2>
+                            <h3>Work for a better tomorrow</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <div class="banner_bg">
+                        <img src="{% static 'home/img/banner_img.png' %}" alt="banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-app-1 custom-animation"><img src="{% static 'home/img/animate_icon/icon_1.png' %}" alt=""></div>
+        <div class="hero-app-5 custom-animation2"><img src="{% static 'home/img/animate_icon/icon_3.png' %}" alt=""></div>
+        <div class="hero-app-7 custom-animation3"><img src="{% static 'home/img/animate_icon/icon_2.png' %}" alt=""></div>
+        <div class="hero-app-8 custom-animation"><img src="{% static 'home/img/animate_icon/icon_4.png' %}" alt=""></div>
+    </section>
+    <!-- banner part end-->
+
+    <!-- Form Start -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+        
+
+            <h1 class="display-3 text-center">Enter Information</h1>
+            <p class="lead text-center">Correct information will give a better result</p>
+            <hr class="my-2">
+
+            <form id="base_form" method="POST"> {% csrf_token %}
+
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+
+                        <div class="form-group">
+                            <select name="area_service" id="area_service" class="form-control">
+                                <option value="">-- Area Service --</option>
+                                <option value="Western NY" class="option">Western NY</option>
+                                <option value="Finger Lakes" class="option">Finger Lakes</option>
+                                <option value="Central NY" class="option">Central NY</option>
+                                <option value="Southern Tier" class="option">Southern Tier</option>
+                                <option value="Capital/Adirond" class="option">Capital/Adirond</option>
+                                <option value="Hudson Valley" class="option">Hudson Valley</option>
+                                <option value="New York City" class="option">New York City</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="age" id="age" class="form-control">
+                                <option value="">-- Age --</option>
+                                <option value="0 to 17">0 to 17</option>
+                                <option value="18 to 29">18 to 29</option>
+                                <option value="30 to 49">30 to 49</option>
+                                <option value="50 to 69">50 to 69</option>
+                                <option value="70 or Older">70 or Older</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="">-- Gender --</option>
+                                <option value="F">Female</option>
+                                <option value="M">Male</option>
+                                <option value="U">Unknown</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="cultural_group" id="cultural_group" class="form-control">
+                                <option value="">-- Cultural Group --</option>
+                                <option value="White">White</option>
+                                <option value="Other Race">Other Race</option>
+                                <option value="Black/African American">Black/African American</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="ethnicity" id="ethnicity" class="form-control">
+                                <option value="">-- Ethnicity --</option>
+                                <option value="Not Span/Hispanic">Not Span/Hispanic</option>
+                                <option value="Spanish/Hispanic">Spanish/Hispanic</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="days_in_hsptl" id="days_in_hsptl" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Days Spend in the Hospital'" placeholder="Days Spend in the Hospital">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="admission_type" id="admission_type" class="form-control">
+                                <option value=""> -- Admission Type --</option>
+                                <option value="Elective">Elective</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Emergency">Emergency</option>
+                                <option value="Newborn">New Born</option>
+                                <option value="Not Available">Not Available</option>
+                                <option value="Trauma">Trauma</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="care_type" id="care_type" class="form-control">
+                                <option value="">-- Type of Care --</option>
+                                <option value="Home or Self Care">Home or Self Care</option>
+                                <option value="Short-term Hospital">Short-term Hospital</option>
+                                <option value="Hosp Basd Medicare Approved Swing Bed">Hosp Basd Medicare Approved Swing Bed</option>
+                                <option value="Facility w/ Custodial/Supportive Care">Facility w/ Custodial/Supportive Care</option>
+                                <option value="Skilled Nursing Home">Skilled Nursing Home</option>
+                                <option value="Expired">Expired</option>
+                                <option value="Left Against Medical Advice">Left Against Medical Advice</option>
+                                <option value="Home w/ Home Health Services">Home w/ Home Health Services</option>
+                                <option value="Psychiatric Hospital or Unit of Hosp">Psychiatric Hospital or Unit of Hosp</option>
+                                <option value="Hospice - Home">Hospice - Home</option>
+                                <option value="Hospice - Medical Facility">Hospice - Medical Facility</option>
+                                <option value="Federal Health Care Facility">Federal Health Care Facility</option>
+                                <option value="Inpatient Rehabilitation Facility">Inpatient Rehabilitation Facility</option>
+                                <option value="Cancer Center or Children's Hospital">Cancer Center or Children's Hospital</option>
+                                <option value="Court/Law Enforcement">Court/Law Enforcement</option>
+                                <option value="Medicare Cert Long Term Care Hospital">Medicare Cert Long Term Care Hospital</option>
+                                <option value="Another Type Not Listed">Another Type Not Listed</option>
+                                <option value="Critical Access Hospital">Critical Access Hospital</option>
+                                <option value="Medicaid Cert Nursing Facility">Medicaid Cert Nursing Facility</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="ccs_diag_code" id="ccs_diagnosis_code" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Diagnosis Code'" placeholder="CCS Diagnosis Code">
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                    
+                        <div class="form-group">
+                            <input class="form-control" name="ccs_procedure_code" id="ccs_procedure_code" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CCS Procedure Code'" placeholder="CCS Procedure Code">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="code_illness" id="code_illness" class="form-control">
+                                <option value="">-- Code Illness</option>
+                                <option value="1">Mild</option>
+                                <option value="2">Moderate</option>
+                                <option value="3">Severe</option>
+                                <option value="4">Indetermine</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="apr_drg_description" id="apr_drg_description" class="form-control">
+                                <option value="">-- Drug Description --</option>
+                                {% for drg_d in drg_desc %}
+                                <option value="{{ drg_d.apr_drg_description }}">{{ drg_d.apr_drg_description }}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="mortality_risk" id="mortality_risk" class="form-control">
+                                <option value="">-- Mortality Risk --</option>
+                                <option value="1">Minor</option>
+                                <option value="2">Moderate</option>
+                                <option value="3">Major</option>
+                                <option value="4">Severe</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="surgery_desc" id="surgery_desc" class="form-control">
+                                <option value="">-- Surgery Description --</option>
+                                <option value="Medical">Medical</option>
+                                <option value="Surgical">Surgical</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="emergency" id="emergency" class="form-control">
+                                <option value="">-- Emergency --</option>
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="total_charg" id="total_charg" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Total Charges'" placeholder="Total Charges">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="total_cost" id="total_cost" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Total Cost'" placeholder="Total Cost">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="payment_typology" id="payment_typology" class="form-control">
+                                <option value="">-- Payment Typology --</option>
+                                <option value="1">Medicare</option>
+                                <option value="2">Medicaid</option>
+                                <option value="3">Other Governments</option>
+                                <option value="4">Department of Corrections</option>
+                                <option value="5">Private Health Insurance</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                        <p class="lead text-center">
+                            <div class = "row">
+                                
+                                <div class = "col-6">
+                                    <input type="reset" class="btn_1 bg-primary w-100 text-center cancel-button" value="CANCEL">
+                                </div>
+                                
+                                <div class = "col-6">
+                                    <button type="submit" class="btn_1 w-100 text-center submit-button" id="submit_button">SUBMIT<i class="ti-angle-right"></i></button>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                
+
+            </form>
+
+
+        </div>
+
+            <div id="result">
+                
+            </div>
+    </div>
+
+    <!-- Form end -->
+
+    <!-- about part start-->
+    <section class="about_part" id = "about">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="about_img">
+                        <img src="{% static 'home/img/about_img_1.png' %}" class="img_1" alt="">
+                        <img src="{% static 'home/img/about_img_2.png' %}" class="img_2" alt="">
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-4">
+                    <div class="about_text">
+                        <h5 style = "font-size: 1.6rem; font-weight: bold;">About the project</h5>
+                        <h2>Predicting easily the Fraud Insurance Claims</h2>
+                        <h4>This project is based on insurance claims</h4>
+                        <p>Finding the fraud insurance claims is a challenging task and this machine learning application is about to predict the fraud and genuine insurance claims.</p>
+                        <!-- <a href="#about" class="btn_1">learn more <i class="ti-angle-right"></i> </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-app-7 custom-animation"><img src="{% static 'home/img/animate_icon/icon_7.png' %}" alt=""></div>
+        <div class="hero-app-8 custom-animation2"><img src="{% static 'home/img/animate_icon/icon_4.png' %}" alt=""></div>
+        <div class="hero-app-6 custom-animation3"><img src="{% static 'home/img/animate_icon/icon_5.png' %}" alt=""></div>
+    </section>
+    <!-- about part end-->
+
+    <!-- cta part start-->
+    <section id = "team" class="cta_part" style = "padding: 100px 0px 20px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="cta_part_iner">
+                        <div class="cta_part_text">
+                            <p style = "font-size: 2rem;"> Team Members </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cta part end-->
+
+    <!-- team_member part start-->
+    <section class="team_member_section section_padding">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_1.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Sajad Shafi </a></h3>
+                            <p> Data Scientist / Web Developer </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_2.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Waheed Ahmad </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_3.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Aasif Hassan Bhat </a></h3>
+                            <p>Data Scientist</p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_4.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Lokesh Dange </a></h3>
+                            <p> Data Scientist / Software Developer </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_5.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Imam Farooq </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_team_member">
+                        <img src="{% static 'home/img/team/team_6.png' %}" alt="">
+                        <div class="single_team_text">
+                            <h3><a href="#"> Gangadar Reddy </a></h3>
+                            <p> Data Scientist </p>
+                            <div class="team_member_social_icon">
+                                <a href="#">facebok</a>
+                                <a href="#">twitter</a>
+                                <a href="#">instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- team_member part end-->
+
+    <!-- Contact Section part Start -->
+    <!-- cta part start-->
+    <section id = "contact" class="cta_part" style = "padding: 100px 0px 20px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="cta_part_iner">
+                        <div class="cta_part_text">
+                            <p style = "font-size: 2rem;"> Contact Us </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cta part end-->
+
+    <section class="contact-section section_padding">
+        <div class="container">
+          <div class="d-none d-sm-block mb-5 pb-4">
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203159.27044165504!2d77.50613736961087!3d12.81772251349342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14fa098c44b9%3A0xa7536cde414cfbfd!2sExcelR%20-%20Data%20Science%2C%20Data%20Analytics%20Course%20Training%20in%20Bangalore!5e0!3m2!1sen!2sin!4v1623573962860!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>     
+          </div>
+    
+    
+          <div class="row">
+            <div class="col-12">
+              <h2 class="contact-title">Get in Touch</h2>
+            </div>
+            <div class="col-lg-8">
+              <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      
+                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Enter Message"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Enter email address">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <button type="submit" class="button button-contactForm btn_4">Send Message</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-4">
+              <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-home"></i></span>
+                <div class="media-body">
+                  <h3>ExcelR Bangalore, India.</h3>
+                  <p>BTM Layout 1st Stage, 560068</p>
+                </div>
+              </div>
+              <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                <div class="media-body">
+                  <h3>1800 212 2120</h3>
+                  <p>+91 9632156744</p>
+                </div>
+              </div>
+              <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-world"></i></span>
+                <div class="media-body">
+                  <h3>https://www.excelr.com/</h3>
+                  <p>Visit Us anytime!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- Contact Section part End -->
+
+
+        <!-- footer part start-->
+        <footer class="footer-area pb-5">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-sm-6 col-md-6 col-12">
+                        <div class="single-footer-widget footer_1">
+                            <a href="#home"> <img src="{% static 'home/img/footer_logo.png' %}" alt=""> </a>
+                            <p>Finding the fraud insurance claims is a challenging task and this machine learning application is about to predict the fraud and genuine insurance claims.</p>
+                            <p>
+                                Predict The Future
+                                Work for a better tomorrow
+                                </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                        <div class="single-footer-widget footer_2">
+                            <h4>Newsletter</h4>
+                            <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
+                            </p>
+                            <form action="#">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder='Enter email address'
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Enter email address'">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button"><i class="ti-angle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="social_icon">
+                                <a href="#"> <i class="ti-facebook"></i> </a>
+                                <a href="#"> <i class="ti-twitter-alt"></i> </a>
+                                <a href="#"> <i class="ti-instagram"></i> </a>
+                                <a href="#"> <i class="ti-skype"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer part end-->
+
+{% endblock main_content %}
+
